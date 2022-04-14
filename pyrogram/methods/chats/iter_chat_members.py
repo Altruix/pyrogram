@@ -112,6 +112,8 @@ class IterChatMembers(Scaffold):
             offset += len(chat_members)
 
             for chat_member in chat_members:
+                if not chat_member.user or not chat_member.user.id:
+                    continue
                 user_id = chat_member.user.id
 
                 if user_id in yielded:
